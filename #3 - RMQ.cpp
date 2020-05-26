@@ -22,7 +22,7 @@ public:
 		Build(root, 1, 0, size);
 		updates.assign(size * 4, std::numeric_limits<int>::max());
 	}
-
+	~SegmentTree() = default;
 	int MinInquiry(int l, int r) {
 		return Min(1, 0, size, l, r);
 	}
