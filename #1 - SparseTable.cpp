@@ -94,6 +94,20 @@ int MinOnSegments(vector <vector <IndVal> >& sparse_table,
 	}
 }
 
+void Print2OrderStat(vector < vector<IndVal> > sparse_table, int requests) {
+	int head, tale;
+	IndVal first_ord;
+
+	for (int i = 0; i < requests; ++i) {
+		cin >> head >> tale;
+		head -= 1;
+		tale -= 1;
+
+		first_ord = RMQMin(sparse_table, head, tale);
+		cout << MinOnSegments(sparse_table, head, first_ord, tale) << '\n';
+	}
+}
+
 int main() {
 	int n, m;
 	cin >> n >> m;
@@ -103,14 +117,5 @@ int main() {
 	vector < vector<IndVal> > sparse_table;
 	CreateSparseTable(sequence, sparse_table);
 
-	int head, tale;
-	IndVal first_ord;
-	for (int i = 0; i < m; ++i) {
-		cin >> head >> tale;
-		head -= 1;
-		tale -= 1;
-
-		first_ord = RMQMin(sparse_table, head, tale);
-		cout << MinOnSegments(sparse_table, head, first_ord, tale) << '\n';
-	}
+	Print2OrderStat(sparse_table, m);
 }
