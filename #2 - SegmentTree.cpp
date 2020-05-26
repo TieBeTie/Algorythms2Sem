@@ -22,6 +22,7 @@ public:
 		Build(root, 1, 0, size);
 		updates.assign(size * 4, -1);
 	}
+	~SegmentTree() = default;
 
 	int MaxInquiry(int l, int r) {
 		return Max(1, 0, size, l, r);
