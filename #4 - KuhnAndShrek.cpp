@@ -145,8 +145,10 @@ void Kuhn(Graph& graph, vector <int>& matching, int& answer, vector <bool>& blac
 int main() {
 	int n, m, a, b;
 	cin >> n >> m >> a >> b;
+
 	vector <char> map;
 	vector <bool> black (m * n, false);
+
 	int holes = 0;
 	ReadMap(map, n, m, holes, black);
 	if (a < 2 * b) {
